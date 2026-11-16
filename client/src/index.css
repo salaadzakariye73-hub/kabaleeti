@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface text-charcoal antialiased;
+  }
+  input, select, textarea {
+    @apply border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange/40 focus:border-orange;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition disabled:opacity-50;
+  }
+  .btn-primary { @apply btn bg-orange text-white hover:brightness-95; }
+  .btn-dark { @apply btn bg-dark text-white hover:bg-charcoal; }
+  .btn-ghost { @apply btn bg-white border border-gray-300 text-charcoal hover:bg-gray-50; }
+  .card { @apply bg-white border border-gray-200 rounded-xl; }
+  .th { @apply bg-charcoal text-white text-left font-semibold px-3 py-2 whitespace-nowrap; }
+  .td { @apply px-3 py-2 border-b border-gray-100 whitespace-nowrap; }
+}
