@@ -1,4 +1,7 @@
-const BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Uses VITE_API_URL when set; otherwise the live Render API (so production works even if the variable is missing).
+const BASE = import.meta.env.VITE_API_URL || (
+  import.meta.env.DEV ? 'http://localhost:5000/api' : 'https://kabaleeti-1.onrender.com/api'
+);
 
 export const getToken = () => localStorage.getItem('kaah_token');
 export const setToken = (t) => (t ? localStorage.setItem('kaah_token', t) : localStorage.removeItem('kaah_token'));
