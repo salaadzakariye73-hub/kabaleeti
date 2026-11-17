@@ -12,6 +12,14 @@ if (!process.env.MONGODB_URI) {
   process.exit(1);
 }
 const app = express();
+
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Kaah Steel Props API is running!',
+    status: 'success',
+    health: '/api/health'
+  });
+});
 app.use(cors({ origin: (process.env.CLIENT_ORIGIN || 'http://localhost:5173').split(',') }));
 app.use(express.json({ limit: '1mb' }));
 
