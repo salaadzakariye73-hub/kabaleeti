@@ -7,7 +7,10 @@ import catalogRoutes from './routes/catalog.js';
 import operationsRoutes from './routes/operations.js';
 import financeRoutes from './routes/finance.js';
 import { requireAuth } from './middleware/auth.js';
-
+if (!process.env.MONGODB_URI) {
+  console.error('MONGODB_URI is missing. Add it in Render → Environment for this service.');
+  process.exit(1);
+}
 const app = express();
 app.use(cors({ origin: (process.env.CLIENT_ORIGIN || 'http://localhost:5173').split(',') }));
 app.use(express.json({ limit: '1mb' }));
